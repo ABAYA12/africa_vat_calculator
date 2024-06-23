@@ -1,5 +1,5 @@
 # app/routes.py
-from flask import render_template, request
+from flask import render_template, request, redirect, url_for
 from app import app
 from vat_rates import VAT_RATES
 
@@ -37,6 +37,11 @@ def index():
     return render_template('index.html', vat_rates=VAT_RATES.keys())
 
 
+@app.route('/about')
+def about():
+    return render_template('about.html')
+
+
 @app.route('/rate', methods=['GET', 'POST'])
 def rate():
     if request.method == 'POST':
@@ -63,8 +68,3 @@ def search():
         return render_template('search.html', vat_rate=vat_rate, country=country, vat_rates=VAT_RATES.keys())
 
     return render_template('search.html', vat_rates=VAT_RATES.keys())
-
-
-@app.route('/about')
-def about():
-    return render_template('about.html')

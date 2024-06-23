@@ -4,18 +4,31 @@ This project is a web-based VAT (Value Added Tax) calculator for 54 African coun
 
 ## Project Structure
 vat_calculator/
+
 ├── app/
+
 │ ├── init.py
+
 │ ├── routes.py
+
 │ ├── static/
+
 │ │ └── styles.css
+
 │ └── templates/
+
 │ ├── base.html
+
 │ ├── index.html
+
 │ ├── rate.html
+
 │ └── about.html
+
 ├── vat_rates.py
+
 ├── requirements.txt
+
 └── README.md
 
 ### Files and Their Functions

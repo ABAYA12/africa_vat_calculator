@@ -1,0 +1,30 @@
+<!-- app/templates/index.html -->
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Welcome to the VAT Calculator for African Countries</h1>
+<form method="post">
+    <label for="prices">Enter prices separated by commas:</label>
+    <input type="text" id="prices" name="prices">
+    <br>
+    <label for="countries">Select countries:</label>
+    <select id="countries" name="countries" multiple>
+        {% for country in vat_rates %}
+            <option value="{{ country }}">{{ country }}</option>
+        {% endfor %}
+    </select>
+    <br>
+    <button type="submit">Calculate VAT</button>
+</form>
+{% if error %}
+    <p class="error">{{ error }}</p>
+{% endif %}
+{% if results %}
+    <h2>Results:</h2>
+    <ul>
+    {% for country, vat in results.items() %}
+        <li>VAT amount for {{ country }}: {{ vat }}</li>
+    {% endfor %}
+    </ul>
+{% endif %}
+{% endblock %}
